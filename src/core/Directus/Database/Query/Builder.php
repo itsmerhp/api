@@ -267,7 +267,7 @@ class Builder
      *
      * @return Builder
      */
-    public function whereNotIn($column, $values, $not = false, $logical = 'and')
+    public function whereNotIn($column, array $values, $not = false, $logical = 'and')
     {
         return $this->whereIn($column, $values, true, $logical);
     }
@@ -277,7 +277,7 @@ class Builder
         return $this->where($column, 'between', $values, $not, $logical);
     }
 
-    public function whereNotBetween($column, $values, $not = false, $logical = 'and')
+    public function whereNotBetween($column, array $values, $not = false, $logical = 'and')
     {
         return $this->whereBetween($column, $values, true, $logical);
     }
@@ -759,8 +759,6 @@ class Builder
         $operator = $notChar . $condition['operator'];
 
         $column = $condition['column'];
-        echo "hiii<pre>";
-        print_r($column);
         $identifier = $this->getIdentifier($column);
         $value = $condition['value'];
 
